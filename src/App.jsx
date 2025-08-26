@@ -1,10 +1,10 @@
 import "./App.css";
-import { ScoreBoard } from "./components/ScoreBoard";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <ScoreBoard></ScoreBoard>
+      <Navbar></Navbar>
     </>
   );
 }
