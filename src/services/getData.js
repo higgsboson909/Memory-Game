@@ -2,7 +2,7 @@ const randomArray = () => {
   let numbers = new Set();
 
   while (numbers.size < 12) {
-    let random = Math.floor(Math.random() * 25 + 1);
+    let random = Math.floor(Math.random() * 35 + 1);
     numbers.add(random);
   }
 
@@ -24,7 +24,7 @@ async function getData() {
   console.log(url);
   let items = [];
   response.map((item, index) => {
-    let id = index;
+    let id = item.id;
     let name = item.name;
     let image = item.image;
 
@@ -33,9 +33,4 @@ async function getData() {
   return items;
 }
 
-// getData().then((res) => {
-//   res.map((item) => console.log(item));
-// });
-//
-//
 export default getData;

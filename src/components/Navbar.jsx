@@ -1,5 +1,5 @@
 import { ScoreBoard } from "./ScoreBoard";
-const Navbar = () => {
+const Navbar = ({ score }) => {
   return (
     <div>
       <div className="sm:mx-auto flex justify-between items-center px-20 py-0">
@@ -9,13 +9,13 @@ const Navbar = () => {
           </a>
         </div>
         <div className="hidden sm:block">
-          <ScoreBoard></ScoreBoard>
+          <ScoreBoard score={score}></ScoreBoard>
         </div>
       </div>
 
       <hr className="text-white mx-auto text-center" />
       <div className="sm:hidden ">
-        <ScoreBoard></ScoreBoard>
+        <ScoreBoard score={score}></ScoreBoard>
       </div>
     </div>
   );
