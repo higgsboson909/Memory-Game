@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
 
       <hr className="text-white mx-auto text-center" />
-      <div className="sm:hidden">
+      <div className="sm:hidden ">
         <ScoreBoard></ScoreBoard>
       </div>
     </div>
