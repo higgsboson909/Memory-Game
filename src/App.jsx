@@ -2,6 +2,7 @@ import GameBoard from "./components/GameBoard";
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import { Footer } from "./components/Footer";
 
 function App() {
   const [score, setScore] = useState({
@@ -13,9 +14,7 @@ function App() {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = (id) => {
-    console.log(id);
     handleScore(id);
-    console.log("Array ", clickArray);
     setIsClicked((prev) => !prev);
   };
 
@@ -28,11 +27,8 @@ function App() {
       });
       clickArray.push(id);
       setScore((prev) => ({ ...prev, currentScore: prev.currentScore + 1 }));
-
-      console.log("current Score", score.currentScore);
     } else {
       if (score.prevScore < score.currentScore) {
-        console.log(score);
         setScore((prev) => {
           const newPrevScore = prev.currentScore;
           return {
@@ -41,11 +37,6 @@ function App() {
             bestScore: newPrevScore,
           };
         });
-        console.log("hi", score);
-        // setScore((prev) => ({
-        //   ...prev,
-        //   prevScore: prev.currentScore,
-        // }));
       }
       setScore((prev) => ({ ...prev, currentScore: 0 }));
       setClickArray([]);
@@ -55,7 +46,12 @@ function App() {
   return (
     <>
       <Navbar score={score}></Navbar>
-      <GameBoard handleClick={handleClick} isClicked={isClicked}></GameBoard>
+      <GameBoard
+        handleClick={handleClick}
+        score={score}
+        isClicked={isClicked}
+      ></GameBoard>
+      <Footer></Footer>
     </>
   );
 }

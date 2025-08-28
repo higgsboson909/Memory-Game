@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { shuffleArray } from "../utils/shuffle";
 import Card from "./Card";
 
-const GameBoard = ({ handleClick, isClicked }) => {
+const GameBoard = ({ handleClick, isClicked, score }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const GameBoard = ({ handleClick, isClicked }) => {
     return () => {
       return;
     };
-  }, []);
+  }, [score.bestScore]);
 
   useEffect(() => {
     let newArray = shuffleArray(items);
@@ -22,7 +22,7 @@ const GameBoard = ({ handleClick, isClicked }) => {
   }, [isClicked]);
 
   return (
-    <div className=" lg:mt-19">
+    <div className=" lg:mt-12">
       {items.length != 0 ? (
         <div className="grid grid-cols-2 justify-items-center gap-y-4 gap-x-7 mx-6 sm:grid-cols-3 sm:m-8  sm:gap-8 lg:grid-cols-6 ">
           {items.map((item) => (
